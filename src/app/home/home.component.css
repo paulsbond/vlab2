@@ -1,0 +1,48 @@
+:host {
+    flex: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+a {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid #666;
+    height: 200px;
+    width: 200px;
+    text-decoration: none;
+}
+
+.alcohol {
+    background-image: url("../../assets/images/alcohol.jpg");
+}
+
+.caffeine {
+    background-image: url("../../assets/images/caffeine.jpg");
+}
+
+.salt {
+    background-image: url("../../assets/images/salt.jpg");
+}
+
+.kmno4 {
+    background-image: url("../../assets/images/kmno4.png");
+}
+
+.ferrocene {
+    background-image: url("../../assets/images/vial.png");
+}
+
+span {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 30px;
+    line-height: 200px;
+    padding: 10px;
+    width: 100%;
+}
