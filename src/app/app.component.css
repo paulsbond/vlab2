@@ -1,5 +1,5 @@
 h1 {
-    background-image: url("/assets/images/lab.jpg");
+    background-image: url("../assets/images/lab.jpg");
     background-position: center;
     background-size: cover;
     font-size: 64px;
