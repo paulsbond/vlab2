@@ -4,6 +4,10 @@ on:
   release:
     types: [published]
 
+permissions:
+  contents: read
+  pages: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build for production
+      - name: Build
         run: npm run build -- --base-href=/vlab2/
 
       - name: Deploy
