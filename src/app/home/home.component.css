@@ -9,13 +9,21 @@
 }
 
 a {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 2px solid #666;
     height: 200px;
     width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
+    background-position: center;
+    background-size: cover;
+}
+
+span {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 32px;
+    padding: 10px;
 }
 
 .alcohol {
@@ -36,13 +44,4 @@ a {
 
 .ferrocene {
     background-image: url("../../assets/images/vial.png");
-}
-
-span {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    font-size: 30px;
-    line-height: 200px;
-    padding: 10px;
-    width: 100%;
 }
