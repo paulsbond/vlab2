@@ -1,0 +1,15 @@
+h1 {
+    background-image: url("/assets/images/lab.jpg");
+    background-position: center;
+    background-size: cover;
+    font-size: 64px;
+    font-weight: bold;
+    height: 100px;
+    line-height: 100px;
+    margin-bottom: 20px;
+}
+
+h1 a {
+    color: inherit;
+    text-decoration: none;
+}
