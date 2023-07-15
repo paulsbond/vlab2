@@ -38,10 +38,15 @@ span {
     background-image: url("../../assets/images/salt.jpg");
 }
 
-.kmno4 {
+.uvvis {
     background-image: url("../../assets/images/kmno4.png");
 }
 
-.ferrocene {
-    background-image: url("../../assets/images/vial.png");
+.cv {
+    background-image: url("../../assets/images/electrodes.jpg");
+}
+
+hr {
+    border: 1px solid #ddd;
+    width: 100%;
 }
