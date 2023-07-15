@@ -1,0 +1,6 @@
+<form>
+    <label for="speed">Speed</label>
+    <select id="speed" name="speed" [(ngModel)]="settings.speed">
+        <option *ngFor="let speed of [1, 10, 100]" [value]="speed">{{ speed }}x</option>
+    </select>
+</form>
