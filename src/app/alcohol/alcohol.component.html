@@ -1,0 +1,11 @@
+<div class="samples">
+    <button *ngFor="let sample of samples" class="sample" [ngClass]="sample.type"
+        [class.selected]="sample === selectedSample" (click)="selectedSample = sample">
+        {{ sample.label }}
+    </button>
+</div>
+
+<div class="image">
+    <img src="../../assets/images/{{selectedSample.image}}" />
+    <span class="label">{{selectedSample.label}}</span>
+</div>

@@ -1,0 +1,57 @@
+:host {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.samples {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.samples .sample {
+    border: 2px solid white;
+    border-radius: 15px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    vertical-align: top;
+}
+
+.samples .sample.stock {
+    background-color: #ece;
+}
+
+.samples .sample.unknown {
+    background-color: #cee;
+}
+
+.samples .sample.dilution {
+    background-color: #eec;
+}
+
+.samples .sample.selected {
+    border: 2px #aaa dashed;
+}
+
+.image {
+    display: inline-block;
+    position: relative;
+}
+
+.image img {
+    height: 200px;
+}
+
+.image .label {
+    background-color: rgba(255, 255, 255, 0.8);
+    left: 50%;
+    padding: 0.2em;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -26,3 +26,8 @@ select {
     padding: 12px 20px;
     width: 100%;
 }
+
+button {
+    color: inherit;
+    font-size: inherit;
+}
