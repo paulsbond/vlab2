@@ -1,0 +1,16 @@
+<form (ngSubmit)="dilute()" #form="ngForm">
+  <label for="label">Label</label>
+  <input id="label" name="label" type="text" placeholder="Label" [(ngModel)]="label" required />
+  <label for="volume">Sample Volume / ml</label>
+  <input id="volume" name="volume" type="number" step="0.1" min="0.1" placeholder="Volume" [(ngModel)]="volume"
+    required />
+  <label for="flask">Volumetric Flask</label>
+  <select id="flask" name="flask" [(ngModel)]="flask" required>
+    <option *ngFor="let flask of flasks" [ngValue]="flask">
+      {{ flask.name }}
+    </option>
+  </select>
+  <button type="submit" [disabled]="error">
+    {{ error || "Dilute" }}
+  </button>
+</form>

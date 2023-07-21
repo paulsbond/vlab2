@@ -9,3 +9,13 @@
     <img src="../../assets/images/{{selectedSample.image}}" />
     <span class="label">{{selectedSample.label}}</span>
 </div>
+
+<div class="actions">
+    <button class="action" *ngFor="let action of actions" [class.selected]="action == selectedAction"
+        (click)="selectedAction = action">
+        {{ action }}
+    </button>
+</div>
+
+<app-dilution *ngIf="selectedAction === 'Dilution'" [sampleConc]="selectedSample.conc"
+    (diluted)="onDiluted($event)"></app-dilution>

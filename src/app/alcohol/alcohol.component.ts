@@ -25,7 +25,11 @@ export class AlcoholComponent {
     new Sample("Vodka & Diet Coke", 7.4, "unknown", "mixer.png"),
     new Sample("Schnapps & Lemonade", 6.7, "unknown", "mixer.png"),
   ];
+  actions = ["Dilution", "Gas Chromatography"];
   selectedSample = this.samples[0];
+  selectedAction = this.actions[0];
+
+  onDiluted(event: any) { }
 }
 
 class Sample {

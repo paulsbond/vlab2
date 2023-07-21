@@ -11,6 +11,7 @@ body {
 
 form {
     margin: auto;
+    width: 100%;
     max-width: 400px;
     text-align: left;
     display: flex;
@@ -30,4 +31,23 @@ select {
 button {
     color: inherit;
     font-size: inherit;
+}
+
+form button {
+    background-color: #4caf50;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    margin: 8px 0;
+    padding: 14px 20px;
+    width: 100%;
+}
+
+form button[disabled] {
+    background-color: #ca6666;
+}
+
+form button:not([disabled]):hover {
+    background-color: #45a049;
+    cursor: pointer;
 }
