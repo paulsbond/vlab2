@@ -17,5 +17,4 @@
     </button>
 </div>
 
-<app-dilution *ngIf="selectedAction === 'Dilution'" [sampleConc]="selectedSample.conc"
-    (diluted)="onDiluted($event)"></app-dilution>
+<app-dilution *ngIf="selectedAction === 'Dilution'" (diluted)="onDiluted($event)"></app-dilution>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DilutionResult } from '../../components/dilution/dilution.component';
+import { random } from '../../utils';
 
 @Component({
   selector: 'app-alcohol',
@@ -29,7 +31,12 @@ export class AlcoholComponent {
   selectedSample = this.samples[0];
   selectedAction = this.actions[0];
 
-  onDiluted(event: any) { }
+  onDiluted(result: DilutionResult) {
+    const sample_volume = result.sample_volume * random(0.99, 1.01);
+    const total_volume = result.flask_volume + random(-0.1, 0.1);
+    const conc = this.selectedSample.conc * (sample_volume / total_volume);
+    this.samples.push(new Sample(result.label, conc));
+  }
 }
 
 class Sample {

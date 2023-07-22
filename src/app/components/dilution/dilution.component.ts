@@ -1,17 +1,11 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { decimal_places, random } from '../../utils';
+import { decimal_places } from '../../utils';
 
 export interface DilutionResult {
   label: string;
-  conc: number;
+  sample_volume: number;
+  flask_volume: number;
 }
 
 @Component({
@@ -20,7 +14,6 @@ export interface DilutionResult {
   styleUrls: ['./dilution.component.css'],
 })
 export class DilutionComponent implements OnInit {
-  @Input({ required: true }) sampleConc!: number;
   @Output() diluted = new EventEmitter<DilutionResult>();
   label: string = '';
   volume: number = 0.1;
@@ -62,11 +55,11 @@ export class DilutionComponent implements OnInit {
   }
 
   dilute(): void {
-    const sample_volume = this.volume * random(0.99, 1.01);
-    const total_volume = this.flask.volume + random(-0.1, 0.1);
-    const conc = this.sampleConc * (sample_volume / total_volume);
-    const result = { label: this.label, conc: conc }
-    this.diluted.emit(result);
+    this.diluted.emit({
+      label: this.label,
+      sample_volume: this.volume,
+      flask_volume: this.flask.volume,
+    });
     this.label = '';
   }
 }
