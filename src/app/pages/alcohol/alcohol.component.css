@@ -70,5 +70,4 @@ button.action {
 button.action.selected {
     background-color: #4caf50;
     color: #fff;
-    outline: 0;
 }
