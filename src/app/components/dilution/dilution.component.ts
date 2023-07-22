@@ -7,7 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { decimal_places, random } from '../utils';
+import { decimal_places, random } from '../../utils';
 
 export interface DilutionResult {
   label: string;
