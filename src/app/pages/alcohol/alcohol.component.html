@@ -1,20 +1,21 @@
 <div class="samples">
-    <button *ngFor="let sample of samples" class="sample" [ngClass]="sample.type"
-        [class.selected]="sample === selectedSample" (click)="selectedSample = sample">
+    <button *ngFor="let sample of service.samples" class="sample" [ngClass]="sample.type"
+        [class.selected]="sample === service.selectedSample" (click)="service.selectedSample = sample">
         <span [editable]="sample.type === 'dilution'" [(ngModel)]="sample.label"></span>
     </button>
 </div>
 
 <div class="image">
-    <img src="../../assets/images/{{selectedSample.image}}" />
-    <span class="label" [editable]="selectedSample.type === 'dilution'" [(ngModel)]="selectedSample.label"></span>
+    <img src="../../assets/images/{{service.selectedSample.image}}" />
+    <span class="label" [editable]="service.selectedSample.type === 'dilution'"
+        [(ngModel)]="service.selectedSample.label"></span>
 </div>
 
 <div class="actions">
-    <button class="action" *ngFor="let action of actions" [class.selected]="action == selectedAction"
-        (click)="selectedAction = action">
+    <button class="action" *ngFor="let action of service.actions" [class.selected]="action == service.selectedAction"
+        (click)="service.selectedAction = action">
         {{ action }}
     </button>
 </div>
 
-<app-dilution *ngIf="selectedAction === 'Dilution'" (diluted)="onDiluted($event)"></app-dilution>
+<app-dilution *ngIf="service.selectedAction === 'Dilution'" (diluted)="onDiluted($event)"></app-dilution>
