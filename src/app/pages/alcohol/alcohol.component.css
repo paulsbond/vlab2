@@ -71,3 +71,20 @@ button.action.selected {
     background-color: #4caf50;
     color: #fff;
 }
+
+table {
+    border-collapse: collapse;
+    max-width: 800px;
+    width: 100%;
+}
+
+table th,
+table td {
+    border: 1px solid #bbb;
+    padding: 0.3em 0.5em;
+}
+
+table th {
+    background-color: #ddd;
+    font-weight: normal;
+}

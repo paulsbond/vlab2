@@ -19,3 +19,55 @@
 </div>
 
 <app-dilution *ngIf="service.selectedAction === 'Dilution'" (diluted)="onDiluted($event)"></app-dilution>
+
+<ng-container *ngIf="service.selectedAction === 'Gas Chromatography'">
+    <!-- <button (click)="inject()" [disabled]="sample.gc.running">
+        {{ sample.gc.running ? "Running" : "Inject" }}
+    </button> -->
+
+    <!-- <google-chart class="chart" [type]="sample.gc.chart.type" [data]="sample.gc.chart.data"
+        [columns]="sample.gc.chart.columns" [options]="sample.gc.chart.options">
+    </google-chart> -->
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Reten. Time<br>[sec]</th>
+                <th>Area<br>[mV.s]</th>
+                <th>Height<br>[mV]</th>
+                <th>Area<br>[%]</th>
+                <th>Height<br>[%]</th>
+                <th>W05<br>[sec]</th>
+                <th>Compound Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr *ngIf="sample.gc.result">
+                <td>1</td>
+                <td class="right">
+                    {{ sample.gc.result.retention_time | number }}
+                </td>
+                <td class="right">{{ sample.gc.result.area | number }}</td>
+                <td class="right">{{ sample.gc.result.height | number }}</td>
+                <td class="right">100.0</td>
+                <td class="right">100.0</td>
+                <td class="right">{{ sample.gc.result.fwhm | number }}</td>
+                <td></td>
+            </tr>
+            <tr *ngIf="!sample.gc.result">
+                <td colspan="8">No peaks</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Total</td>
+                <td class="right">{{ sample.gc.result?.area | number }}</td>
+                <td class="right">{{ sample.gc.result?.height | number }}</td>
+                <td class="right">{{ sample.gc.result ? "100.0" : "" }}</td>
+                <td class="right">{{ sample.gc.result ? "100.0" : "" }}</td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </tbody>
+    </table>
+</ng-container>
