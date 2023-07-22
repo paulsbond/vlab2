@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
-import { AppRoutingModule } from './app-routing.module';
+import { NgsContenteditableModule } from "@ng-stack/contenteditable";
 
 import { AlcoholComponent } from './pages/alcohol/alcohol.component';
 import { AppComponent } from './app.component';
@@ -18,9 +20,10 @@ import { SettingsComponent } from './pages/settings/settings.component';
     SettingsComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    NgsContenteditableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

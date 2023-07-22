@@ -1,13 +1,13 @@
 <div class="samples">
     <button *ngFor="let sample of samples" class="sample" [ngClass]="sample.type"
         [class.selected]="sample === selectedSample" (click)="selectedSample = sample">
-        {{ sample.label }}
+        <span [editable]="sample.type === 'dilution'" [(ngModel)]="sample.label"></span>
     </button>
 </div>
 
 <div class="image">
     <img src="../../assets/images/{{selectedSample.image}}" />
-    <span class="label">{{selectedSample.label}}</span>
+    <span class="label" [editable]="selectedSample.type === 'dilution'" [(ngModel)]="selectedSample.label"></span>
 </div>
 
 <div class="actions">
