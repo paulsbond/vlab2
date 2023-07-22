@@ -27,23 +27,23 @@ span {
 }
 
 .alcohol {
-    background-image: url("../../assets/images/alcohol.jpg");
+    background-image: url("../../../assets/images/alcohol.jpg");
 }
 
 .caffeine {
-    background-image: url("../../assets/images/caffeine.jpg");
+    background-image: url("../../../assets/images/caffeine.jpg");
 }
 
 .salt {
-    background-image: url("../../assets/images/salt.jpg");
+    background-image: url("../../../assets/images/salt.jpg");
 }
 
 .uvvis {
-    background-image: url("../../assets/images/kmno4.png");
+    background-image: url("../../../assets/images/kmno4.png");
 }
 
 .cv {
-    background-image: url("../../assets/images/electrodes.jpg");
+    background-image: url("../../../assets/images/electrodes.jpg");
 }
 
 hr {
