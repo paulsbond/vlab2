@@ -35,8 +35,13 @@ export class AlcoholService {
   actions = ["Dilution", "Gas Chromatography"];
   selectedSample = this.samples[0];
   selectedAction = this.actions[0];
+  running = false;
 
   addSample(label: string, conc: number) {
     this.samples.push(new Sample(label, conc));
+  }
+
+  inject() {
+
   }
 }
