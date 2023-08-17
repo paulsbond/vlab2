@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
+import { GoogleChartsModule } from "angular-google-charts";
 import { NgsContenteditableModule } from "@ng-stack/contenteditable";
 
 import { AlcoholComponent } from './pages/alcohol/alcohol.component';
@@ -23,6 +24,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    GoogleChartsModule,
     NgsContenteditableModule,
   ],
   providers: [],
