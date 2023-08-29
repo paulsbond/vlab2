@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Chromatograph } from 'src/app/chromatograph';
+import { Gaussian } from 'src/app/gaussian';
+import { random } from 'src/app/utils';
+import { SettingsService } from '../settings/settings.service';
 
 export class Sample {
+  gc = new Chromatograph('Gas Chromatography', 180, 50, 1000);
+
   constructor(
     public label: string,
     public conc: number,
     public type: string = 'dilution',
-    public image: string = 'vial.png'
+    public image: string = 'vial.png',
   ) { }
 }
 
@@ -37,11 +43,17 @@ export class AlcoholService {
   selectedAction = this.actions[0];
   running = false;
 
+  constructor(private settings: SettingsService) { }
+
   addSample(label: string, conc: number) {
     this.samples.push(new Sample(label, conc));
   }
 
   inject() {
-
+    const height = ((this.selectedSample.conc * 1000) / 5.2) * random(0.995, 1.005);
+    const position = 120 * random(0.995, 1.005);
+    const sd = 5 * random(0.995, 1.005);
+    const gaussian = new Gaussian(height, position, sd);
+    this.selectedSample.gc.inject(gaussian, this.settings.speed);
   }
 }

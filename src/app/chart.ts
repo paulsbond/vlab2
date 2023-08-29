@@ -1,23 +1,25 @@
+import { ChartType } from "angular-google-charts";
+
 export class Chart {
   private _ymin: number;
   private _ymax: number;
-  public type = 'LineChart';
-  public columns = ['x', 'y'];
+  public type = ChartType.LineChart;
   public data = [[0, 0]];
+  public columns = ['xlabel', 'ylabel'];
   public options = {
     chartArea: { top: 20, height: '80%', width: '80%' },
     enableInteractivity: false,
     hAxis: {
       title: 'X',
       titleTextStyle: { italic: false },
-      viewWindow: { min: undefined, max: undefined },
+      viewWindow: { min: 0, max: 1 },
     },
     height: 400,
     legend: 'none',
     vAxis: {
       title: 'Y',
       titleTextStyle: { italic: false },
-      viewWindow: { min: undefined, max: undefined },
+      viewWindow: { min: 0, max: 1 },
     },
   };
 
