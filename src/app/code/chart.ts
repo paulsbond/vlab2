@@ -26,7 +26,7 @@ export class Chart {
   constructor(
     xlabel: string,
     ylabel: string,
-    private xmin: number,
+    xmin: number,
     xmax: number,
     ymin: number,
     ymax: number,

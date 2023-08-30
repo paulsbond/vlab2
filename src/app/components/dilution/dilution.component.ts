@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { decimal_places } from '../../utils';
+import { decimal_places } from '../../code/utils';
 
 export interface DilutionResult {
   label: string;

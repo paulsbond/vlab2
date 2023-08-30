@@ -13,7 +13,6 @@ export class Chromatograph {
   }
 
   constructor(
-    private action: string,
     private runtime: number,
     private min_voltage: number,
     private max_voltage: number
@@ -52,7 +51,7 @@ export class Chromatograph {
   }
 }
 
-export interface Result {
+interface Result {
   retention_time: number;
   area: number;
   height: number;

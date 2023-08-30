@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DilutionResult } from '../../components/dilution/dilution.component';
-import { random } from '../../utils';
+import { random } from '../../code/utils';
 import { AlcoholService } from './alcohol.service';
 
 @Component({

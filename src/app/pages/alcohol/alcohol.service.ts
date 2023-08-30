@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Chromatograph } from 'src/app/chromatograph';
-import { Gaussian } from 'src/app/gaussian';
-import { random } from 'src/app/utils';
+import { Chromatograph } from '../../code/chromatograph';
+import { Gaussian } from '../../code/gaussian';
+import { random } from '../../code/utils';
 import { SettingsService } from '../settings/settings.service';
 
 export class Sample {
-  gc = new Chromatograph('Gas Chromatography', 180, 50, 1000);
+  gc = new Chromatograph(180, 50, 1000);
 
   constructor(
     public label: string,
