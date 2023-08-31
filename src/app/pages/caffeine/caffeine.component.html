@@ -1,0 +1,74 @@
+<div class="samples">
+    <button *ngFor="let sample of service.samples" class="sample" [ngClass]="sample.type"
+        [class.selected]="sample === service.selectedSample" (click)="service.selectedSample = sample">
+        {{sample.label}}
+    </button>
+</div>
+
+<div class="image">
+    <img src="../../assets/images/{{service.selectedSample.image}}" />
+    <span class="label" [editable]="service.selectedSample.type === 'dilution'" propValueAccessor="innerText"
+        [(ngModel)]="service.selectedSample.label"></span>
+</div>
+
+<div class="actions">
+    <button class="action" *ngFor="let action of service.actions" [class.selected]="action == service.selectedAction"
+        (click)="service.selectedAction = action">
+        {{ action }}
+    </button>
+</div>
+
+<app-dilution *ngIf="service.selectedAction === 'Dilution'" (diluted)="onDiluted($event)"></app-dilution>
+
+<ng-container *ngIf="service.selectedAction === 'HPLC'">
+    <button (click)="service.inject()" [disabled]="service.running">
+        {{ service.running ? "Running" : "Inject" }}
+    </button>
+
+    <google-chart class="chart" [type]="service.selectedSample.hplc.chart.type"
+        [data]="service.selectedSample.hplc.chart.data" [columns]="service.selectedSample.hplc.chart.columns"
+        [options]="service.selectedSample.hplc.chart.options">
+    </google-chart>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Reten. Time<br>[sec]</th>
+                <th>Area<br>[mV.s]</th>
+                <th>Height<br>[mV]</th>
+                <th>Area<br>[%]</th>
+                <th>Height<br>[%]</th>
+                <th>W05<br>[sec]</th>
+                <th>Compound Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="service.selectedSample.hplc.result">
+                <td>1</td>
+                <td class="right">
+                    {{ service.selectedSample.hplc.result.retention_time | number }}
+                </td>
+                <td class="right">{{ service.selectedSample.hplc.result.area | number }}</td>
+                <td class="right">{{ service.selectedSample.hplc.result.height | number }}</td>
+                <td class="right">100.0</td>
+                <td class="right">100.0</td>
+                <td class="right">{{ service.selectedSample.hplc.result.fwhm | number }}</td>
+                <td></td>
+            </tr>
+            <tr *ngIf="!service.selectedSample.hplc.result">
+                <td colspan="8">No peaks</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Total</td>
+                <td class="right">{{ service.selectedSample.hplc.result?.area | number }}</td>
+                <td class="right">{{ service.selectedSample.hplc.result?.height | number }}</td>
+                <td class="right">{{ service.selectedSample.hplc.result ? "100.0" : "" }}</td>
+                <td class="right">{{ service.selectedSample.hplc.result ? "100.0" : "" }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</ng-container>

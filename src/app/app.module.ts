@@ -8,6 +8,7 @@ import { NgsContenteditableModule } from "@ng-stack/contenteditable";
 
 import { AlcoholComponent } from './pages/alcohol/alcohol.component';
 import { AppComponent } from './app.component';
+import { CaffeineComponent } from './pages/caffeine/caffeine.component';
 import { DilutionComponent } from './components/dilution/dilution.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SettingsComponent } from './pages/settings/settings.component';
@@ -16,6 +17,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
   declarations: [
     AlcoholComponent,
     AppComponent,
+    CaffeineComponent,
     DilutionComponent,
     HomeComponent,
     SettingsComponent,
