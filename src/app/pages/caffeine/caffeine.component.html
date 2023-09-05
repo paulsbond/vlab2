@@ -25,9 +25,8 @@
         {{ service.running ? "Running" : "Inject" }}
     </button>
 
-    <google-chart class="chart" [type]="service.selectedSample.hplc.chart.type"
-        [data]="service.selectedSample.hplc.chart.data" [columns]="service.selectedSample.hplc.chart.columns"
-        [options]="service.selectedSample.hplc.chart.options">
+    <google-chart [type]="service.selectedSample.hplc.chart.type" [data]="service.selectedSample.hplc.chart.data"
+        [columns]="service.selectedSample.hplc.chart.columns" [options]="service.selectedSample.hplc.chart.options">
     </google-chart>
 
     <table>
