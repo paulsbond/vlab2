@@ -12,6 +12,7 @@ import { CaffeineComponent } from './pages/caffeine/caffeine.component';
 import { DilutionComponent } from './components/dilution/dilution.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { SaltComponent } from './pages/salt/salt.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
     DilutionComponent,
     HomeComponent,
     SettingsComponent,
+    SaltComponent,
   ],
   imports: [
     AppRoutingModule,

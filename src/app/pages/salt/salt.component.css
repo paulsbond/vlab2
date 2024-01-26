@@ -1,0 +1,19 @@
+:host {
+    width: 100%;
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.screen {
+    text-align: right;
+    width: 100px;
+    background-color: #cdc9b3;
+    border-radius: 5px;
+    font-family: "digital";
+    font-size: 40px;
+    margin: 0 auto 20px auto;
+    padding: 0 15px;
+}

@@ -4,11 +4,13 @@ import { AlcoholComponent } from './pages/alcohol/alcohol.component';
 import { CaffeineComponent } from './pages/caffeine/caffeine.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { SaltComponent } from './pages/salt/salt.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'alcohol', component: AlcoholComponent },
   { path: 'caffeine', component: CaffeineComponent },
+  { path: 'salt', component: SaltComponent },
   { path: 'settings', component: SettingsComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

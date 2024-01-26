@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "digital";
+    src: url("assets/fonts/digital.woff2") format("woff2"),
+        url("assets/fonts/digital.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
