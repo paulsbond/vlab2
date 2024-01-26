@@ -41,12 +41,3 @@ span {
 .uvvis {
     background-image: url("../../../assets/images/kmno4.png");
 }
-
-.cv {
-    background-image: url("../../../assets/images/electrodes.jpg");
-}
-
-hr {
-    border: 1px solid #ddd;
-    width: 100%;
-}
