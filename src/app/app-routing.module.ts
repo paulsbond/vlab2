@@ -5,6 +5,7 @@ import { CaffeineComponent } from './pages/caffeine/caffeine.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SaltComponent } from './pages/salt/salt.component';
+import { UvvisComponent } from './pages/uvvis/uvvis.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'caffeine', component: CaffeineComponent },
   { path: 'salt', component: SaltComponent },
   { path: 'settings', component: SettingsComponent },
+  { path: 'uvvis', component: UvvisComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 

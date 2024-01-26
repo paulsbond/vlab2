@@ -13,6 +13,7 @@ import { DilutionComponent } from './components/dilution/dilution.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SaltComponent } from './pages/salt/salt.component';
+import { UvvisComponent } from './pages/uvvis/uvvis.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SaltComponent } from './pages/salt/salt.component';
     HomeComponent,
     SettingsComponent,
     SaltComponent,
+    UvvisComponent,
   ],
   imports: [
     AppRoutingModule,
