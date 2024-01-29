@@ -1,0 +1,7 @@
+{
+    "files.watcherExclude": {
+        "**/.angular/**": true,
+        "**/.git/**": true,
+        "**/node_modules/**": true,
+    }
+}
