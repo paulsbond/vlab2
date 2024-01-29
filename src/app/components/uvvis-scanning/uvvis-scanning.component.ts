@@ -11,7 +11,7 @@ import { SettingsService } from 'src/app/pages/settings/settings.service';
   styleUrls: ['./uvvis-scanning.component.css']
 })
 export class UvvisScanningComponent implements OnInit {
-  @Input() uvvis: UvVis = new UvVis();
+  @Input({ required: true }) uvvis!: UvVis;
   nm_range: string = 'FULL';
   error: string = '';
 
