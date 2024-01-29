@@ -1,0 +1,45 @@
+<form (ngSubmit)="scanStop()" #form="ngForm">
+    <label for="nm_range">Wavelength Range</label>
+    <select id="nm_range" name="nm_range" [(ngModel)]="nm_range" [disabled]="uvvis.running" required>
+        <option value="FULL">Full (190 to 1100 nm)</option>
+        <option value="UV">UV (220 to 400 nm)</option>
+        <option value="VISIBLE">Visible (350 to 700 nm)</option>
+        <option value="CUSTOM">Custom</option>
+    </select>
+    <label for="min_nm">Min Wavelength / nm</label>
+    <input id="min_nm" name="min_nm" type="number" step="0.1" min="190" max="1100" placeholder="Min Wavelength"
+        [(ngModel)]="uvvis.min_nm" [disabled]="nm_range != 'CUSTOM' || uvvis.running" required />
+    <label for="max_nm">Max Wavelength / nm</label>
+    <input id="max_nm" name="max_nm" type="number" step="0.1" min="190" max="1100" placeholder="Max Wavelength"
+        [(ngModel)]="uvvis.max_nm" [disabled]="nm_range != 'CUSTOM' || uvvis.running" required />
+    <label for="nm_per_reading">Interval / nm</label>
+    <select id="nm_per_reading" name="nm_per_reading" [(ngModel)]="uvvis.nm_per_reading" [disabled]="uvvis.running"
+        required>
+        <option [ngValue]="0.1">0.1</option>
+        <option [ngValue]="0.2">0.2</option>
+        <option [ngValue]="0.4">0.4</option>
+        <option [ngValue]="1.0">1.0</option>
+        <option [ngValue]="2.0">2.0</option>
+        <option [ngValue]="4.0">4.0</option>
+        <option [ngValue]="6.0">6.0</option>
+    </select>
+    <label for="cuvette">Cuvette Size</label>
+    <select id="cuvette" name="cuvette" [(ngModel)]="uvvis.scan_cuvette_cm" [disabled]="uvvis.running" required>
+        <option [ngValue]="1.0">1 cm</option>
+        <option [ngValue]="0.1">1 mm</option>
+    </select>
+    <p>
+        Estimated run time: {{ error ? "NA" : uvvis.run_time() * 1000 | date : "m 'minutes' s 'seconds'" }}
+    </p>
+    <button type="submit" [disabled]="error">
+        {{ error || (uvvis.running ? "Stop" : "Scan") }}
+    </button>
+</form>
+
+<google-chart class="chart" [type]="uvvis.chart.type" [data]="uvvis.chart.data" [columns]="uvvis.chart.columns"
+    [options]="uvvis.chart.options">
+</google-chart>
+
+<button (click)="exportCsv()" [disabled]="uvvis.running || !uvvis.chart.has_data()">
+    Export CSV
+</button>
