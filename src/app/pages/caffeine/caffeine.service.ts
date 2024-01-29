@@ -34,7 +34,6 @@ export class CaffeineService {
   actions = ["Dilution", "HPLC"];
   selectedSample = this.samples[0];
   selectedAction = this.actions[0];
-  running = false;
 
   constructor(private settings: SettingsService) { }
 

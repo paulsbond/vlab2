@@ -41,7 +41,6 @@ export class AlcoholService {
   actions = ["Dilution", "Gas Chromatography"];
   selectedSample = this.samples[0];
   selectedAction = this.actions[0];
-  running = false;
 
   constructor(private settings: SettingsService) { }
 

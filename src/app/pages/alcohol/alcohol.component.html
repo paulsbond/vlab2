@@ -21,8 +21,8 @@
 <app-dilution *ngIf="service.selectedAction === 'Dilution'" (diluted)="onDiluted($event)"></app-dilution>
 
 <ng-container *ngIf="service.selectedAction === 'Gas Chromatography'">
-    <button (click)="service.inject()" [disabled]="service.running">
-        {{ service.running ? "Running" : "Inject" }}
+    <button (click)="service.inject()" [disabled]="service.selectedSample.gc.running">
+        {{ service.selectedSample.gc.running ? "Running" : "Inject" }}
     </button>
 
     <google-chart [type]="service.selectedSample.gc.chart.type" [data]="service.selectedSample.gc.chart.data"

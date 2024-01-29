@@ -21,8 +21,8 @@
 <app-dilution *ngIf="service.selectedAction === 'Dilution'" (diluted)="onDiluted($event)"></app-dilution>
 
 <ng-container *ngIf="service.selectedAction === 'HPLC'">
-    <button (click)="service.inject()" [disabled]="service.running">
-        {{ service.running ? "Running" : "Inject" }}
+    <button (click)="service.inject()" [disabled]="service.selectedSample.hplc.running">
+        {{ service.selectedSample.hplc.running ? "Running" : "Inject" }}
     </button>
 
     <google-chart [type]="service.selectedSample.hplc.chart.type" [data]="service.selectedSample.hplc.chart.data"
