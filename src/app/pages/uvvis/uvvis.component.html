@@ -1,1 +1,26 @@
-<p>uvvis works!</p>
+<div class="samples">
+    <button *ngFor="let sample of service.samples" class="sample" [ngClass]="sample.type"
+        [class.selected]="sample === service.selectedSample" (click)="service.selectedSample = sample">
+        {{sample.label}}
+    </button>
+</div>
+
+<div class="image">
+    <img src="../../assets/images/{{service.selectedSample.image}}" />
+    <span class="label" [editable]="service.selectedSample.type === 'dilution'" propValueAccessor="innerText"
+        [(ngModel)]="service.selectedSample.label"></span>
+</div>
+
+<div class="actions">
+    <button class="action" *ngFor="let action of service.actions" [class.selected]="action == service.selectedAction"
+        (click)="service.selectedAction = action">
+        {{ action }}
+    </button>
+</div>
+
+<app-dilution *ngIf="service.selectedAction === 'Dilution'" (diluted)="onDiluted($event)"></app-dilution>
+
+<ng-container *ngIf="service.selectedAction === 'UV-Vis (Fixed)'">
+    <app-uvvis-fixed (submitted)="onRead($event)"></app-uvvis-fixed>
+    <p class="screen">{{service.selectedSample.uvvis.read_abs | number : '1.4' }}</p>
+</ng-container>

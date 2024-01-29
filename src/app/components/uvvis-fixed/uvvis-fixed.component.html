@@ -1,0 +1,13 @@
+<form (ngSubmit)="submit()" #form="ngForm">
+    <label for="wavelength">Wavelength / nm</label>
+    <input id="wavelength" name="wavelength" type="number" step="0.1" min="190" max="1100" placeholder="Wavelength"
+        [(ngModel)]="wavelength" required />
+    <label for="cuvette">Cuvette Size</label>
+    <select id="cuvette" name="cuvette" [(ngModel)]="cuvette_cm" required>
+        <option [ngValue]="1.0">1 cm</option>
+        <option [ngValue]="0.1">1 mm</option>
+    </select>
+    <button type="submit" [disabled]="error">
+        {{ error || "Read" }}
+    </button>
+</form>

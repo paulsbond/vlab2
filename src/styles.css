@@ -145,3 +145,12 @@ table th {
 .google-chart {
     width: 100% !important;
 }
+
+.screen {
+    background-color: #cdc9b3;
+    border-radius: 5px;
+    font-family: "digital";
+    font-size: 40px;
+    margin: 0 auto 20px auto;
+    padding: 0 15px;
+}

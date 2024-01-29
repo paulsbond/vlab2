@@ -14,6 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SaltComponent } from './pages/salt/salt.component';
 import { UvvisComponent } from './pages/uvvis/uvvis.component';
+import { UvvisFixedComponent } from './components/uvvis-fixed/uvvis-fixed.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UvvisComponent } from './pages/uvvis/uvvis.component';
     SettingsComponent,
     SaltComponent,
     UvvisComponent,
+    UvvisFixedComponent,
   ],
   imports: [
     AppRoutingModule,
