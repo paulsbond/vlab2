@@ -20,10 +20,8 @@
 
 <app-dilution *ngIf="service.selectedAction === 'Dilution'" (diluted)="onDiluted($event)"></app-dilution>
 
-<ng-container *ngIf="service.selectedAction === 'UV-Vis (Fixed)'">
-    <app-uvvis-fixed (submitted)="onRead($event)"></app-uvvis-fixed>
-    <p class="screen">{{service.selectedSample.uvvis.read_abs | number : '1.4' }}</p>
-</ng-container>
+<app-uvvis-fixed *ngIf="service.selectedAction === 'UV-Vis (Fixed)'" [uvvis]="service.selectedSample.uvvis">
+</app-uvvis-fixed>
 
 <app-uvvis-scanning *ngIf="service.selectedAction === 'UV-Vis (Scanning)'" [uvvis]="service.selectedSample.uvvis">
 </app-uvvis-scanning>

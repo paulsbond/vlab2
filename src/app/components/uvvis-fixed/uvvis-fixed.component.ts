@@ -1,11 +1,8 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { decimal_places } from '../../code/utils';
-
-export interface UvVisFixedResult {
-  wavelength: number;
-  cuvette_cm: number;
-}
+import { UvVis } from 'src/app/code/uvvis';
+import { UvvisService } from 'src/app/pages/uvvis/uvvis.service';
 
 @Component({
   selector: 'app-uvvis-fixed',
@@ -13,15 +10,13 @@ export interface UvVisFixedResult {
   styleUrls: ['./uvvis-fixed.component.css']
 })
 export class UvvisFixedComponent implements OnInit {
-  @Output() submitted = new EventEmitter<UvVisFixedResult>();
-  wavelength: number = 190;
-  cuvette_cm: number = 1;
+  @Input({ required: true }) uvvis!: UvVis;
   error: string = '';
 
   @ViewChild("form", { static: true }) form!: NgForm;
   formChangesSubscription: any;
 
-  constructor() { }
+  constructor(private service: UvvisService) { }
 
   ngOnInit(): void {
     this.formChangesSubscription = this.form.valueChanges!.subscribe(
@@ -43,10 +38,7 @@ export class UvvisFixedComponent implements OnInit {
     this.formChangesSubscription.unsubscribe();
   }
 
-  submit(): void {
-    this.submitted.emit({
-      wavelength: this.wavelength,
-      cuvette_cm: this.cuvette_cm,
-    });
+  read() {
+    this.uvvis.read(this.service.selectedSample.conc);
   }
 }

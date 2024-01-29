@@ -1,9 +1,9 @@
-<form (ngSubmit)="submit()" #form="ngForm">
+<form (ngSubmit)="read()" #form="ngForm">
     <label for="wavelength">Wavelength / nm</label>
     <input id="wavelength" name="wavelength" type="number" step="0.1" min="190" max="1100" placeholder="Wavelength"
-        [(ngModel)]="wavelength" required />
+        [(ngModel)]="uvvis.read_nm" required />
     <label for="cuvette">Cuvette Size</label>
-    <select id="cuvette" name="cuvette" [(ngModel)]="cuvette_cm" required>
+    <select id="cuvette" name="cuvette" [(ngModel)]="uvvis.read_cuvette_cm" required>
         <option [ngValue]="1.0">1 cm</option>
         <option [ngValue]="0.1">1 mm</option>
     </select>
@@ -11,3 +11,4 @@
         {{ error || "Read" }}
     </button>
 </form>
+<p class="screen">{{uvvis.read_abs | number : '1.4' }}</p>
