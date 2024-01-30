@@ -29,7 +29,7 @@
         <option [ngValue]="0.1">1 mm</option>
     </select>
     <p>
-        Estimated run time: {{ error ? "NA" : uvvis.run_time() * 1000 | date : "m 'minutes' s 'seconds'" }}
+        Estimated run time: {{ error ? "NA" : uvvis.run_time * 1000 | date : "m 'minutes' s 'seconds'" }}
     </p>
     <button type="submit" [disabled]="error">
         {{ error || (uvvis.running ? "Stop" : "Scan") }}

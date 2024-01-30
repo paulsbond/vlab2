@@ -50,6 +50,7 @@ export class UvvisScanningComponent implements OnInit {
           this.uvvis.min_nm = 220;
           this.uvvis.max_nm = 400;
         }
+        this.uvvis.update_run_time();
       }
     );
   }

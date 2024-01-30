@@ -15,19 +15,18 @@ export class UvVis {
     public min_nm: number = 190;
     public max_nm: number = 1100;
     public nm_per_reading: number = 2;
+    public run_time: number = 0;
 
     public get running(): boolean {
         return this._running;
     }
 
-    constructor() { }
+    constructor() { this.update_run_time(); }
 
-    run_time(): number {
-        let min = this.min_nm;
-        if (this._running) min = this._scan_nm;
-        const nm_range = this.max_nm - min;
+    update_run_time(): void {
+        const nm_range = this.max_nm - (this.running ? this._scan_nm : this.min_nm);
         const time = nm_range / this.nm_per_reading * this._seconds_per_reading;
-        return (time > 0) ? time : 0;
+        this.run_time = (time > 0) ? time : 0;
     }
 
     read(conc: number): void {
@@ -42,14 +41,12 @@ export class UvVis {
         this._scan_nm = this.min_nm;
         this._running = true;
         this._interval = setInterval(() => {
-            let absorbance = read_abs(conc, this._scan_nm, this.scan_cuvette_cm);
+            const absorbance = read_abs(conc, this._scan_nm, this.scan_cuvette_cm);
             this.chart.add_point(this._scan_nm, absorbance);
             this.chart.auto_yaxis();
             this._scan_nm += this.nm_per_reading;
-            if (this._scan_nm > this.max_nm) {
-                this._running = false;
-                clearInterval(this._interval);
-            }
+            this.update_run_time();
+            if (this._scan_nm > this.max_nm) this.stop();
         }, this._seconds_per_reading * 1000 / speed);
     }
 
