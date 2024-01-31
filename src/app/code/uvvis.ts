@@ -39,7 +39,6 @@ export class UvVis {
     private _run_time: number = this.calculate_run_time();
     public get run_time() { return this._run_time; }
     private calculate_run_time(): number {
-        console.log("Calculating run time...")
         const nm_range = this.max_nm - (this.running ? this._scan_nm : this.min_nm);
         const time = nm_range / this.nm_per_reading * this._seconds_per_reading;
         return (time > 0) ? time : 0;
