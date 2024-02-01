@@ -6,11 +6,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { SaltComponent } from './pages/salt/salt.component';
 import { UvvisComponent } from './pages/uvvis/uvvis.component';
+import { CvComponent } from './pages/cv/cv.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'alcohol', component: AlcoholComponent },
   { path: 'caffeine', component: CaffeineComponent },
+  { path: 'cv', component: CvComponent },
   { path: 'salt', component: SaltComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'uvvis', component: UvvisComponent },

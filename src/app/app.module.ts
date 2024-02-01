@@ -16,6 +16,7 @@ import { SaltComponent } from './pages/salt/salt.component';
 import { UvvisComponent } from './pages/uvvis/uvvis.component';
 import { UvvisFixedComponent } from './components/uvvis-fixed/uvvis-fixed.component';
 import { UvvisScanningComponent } from './components/uvvis-scanning/uvvis-scanning.component';
+import { CvComponent } from './pages/cv/cv.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { UvvisScanningComponent } from './components/uvvis-scanning/uvvis-scanni
     UvvisComponent,
     UvvisFixedComponent,
     UvvisScanningComponent,
+    CvComponent,
   ],
   imports: [
     AppRoutingModule,
