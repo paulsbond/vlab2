@@ -39,8 +39,8 @@
   },
   "overrides": {
     "angular-google-charts": {
-      "@angular/common": "^16.1.0",
-      "@angular/core": "^16.1.0"
+      "@angular/common": "^17.1.2",
+      "@angular/core": "^17.1.2"
     }
   }
 }
