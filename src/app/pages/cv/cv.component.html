@@ -1,1 +1,31 @@
-<p>cv works!</p>
+<form (ngSubmit)="service.simulate()" #form="ngForm">
+    <label for="ferrocene_conc">Ferrocene Concentration / mM</label>
+    <input id="ferrocene_conc" name="ferrocene_conc" type="number" [(ngModel)]="service.ferrocene_conc" required>
+    <label for="liclo4_conc">LiClO<sub>4</sub> Concentration / mM</label>
+    <input id="liclo4_conc" name="liclo4_conc" type="number" [(ngModel)]="service.liclo4_conc" required>
+    <label for="material">Reference Electrode Material</label>
+    <select id="material" name="material" [(ngModel)]="service.material" required>
+        <option [ngValue]="'Pt QRE'">Pt QRE</option>
+        <option [ngValue]="'Ag/AgCl'">Ag/AgCl</option>
+    </select>
+    <label for="scan_rate">Scan Rate / mV s<sup>-1</sup></label>
+    <select id="scan_rate" name="scan_rate" [(ngModel)]="service.scan_rate" required>
+        <option [ngValue]="200">200</option>
+        <option [ngValue]="150">150</option>
+        <option [ngValue]="100">100</option>
+        <option [ngValue]="75">75</option>
+    </select>
+    <label for="min_nm">Min Voltage / V</label>
+    <input id="min_nm" name="min_nm" type="number" step="0.1" min="190" max="1100" [(ngModel)]="service.min_voltage"
+        required />
+    <label for="max_nm">Max Voltage / V</label>
+    <input id="max_nm" name="max_nm" type="number" step="0.1" min="190" max="1100" [(ngModel)]="service.max_voltage"
+        required />
+    <button type="submit" [disabled]="error">
+        {{ error || "Simulate" }}
+    </button>
+</form>
+
+<google-chart class="chart" [type]="service.chart.type" [data]="service.chart.data" [columns]="service.chart.columns"
+    [options]="service.chart.options">
+</google-chart>
