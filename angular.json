@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "vlab2:build:production"
+              "buildTarget": "vlab2:build:production"
             },
             "development": {
-              "browserTarget": "vlab2:build:development"
+              "buildTarget": "vlab2:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "vlab2:build"
+            "buildTarget": "vlab2:build"
           }
         },
         "test": {
