@@ -10,35 +10,13 @@ export class UvVis {
     public read_nm: number = 190;
     public read_abs: number = 0;
     public read_cuvette_cm: number = 1;
+    public min_nm: number = 190;
+    public max_nm: number = 1100;
+    public nm_per_reading: number = 2;
     public scan_cuvette_cm: number = 1;
+    public running: boolean = false;
 
-    private _running: boolean = false;
-    public get running() { return this._running; }
-
-    private _min_nm: number = 190;
-    public get min_nm() { return this._min_nm; }
-    public set min_nm(value: number) {
-        this._min_nm = value;
-        this._run_time = this.calculate_run_time();
-    }
-
-    private _max_nm: number = 1100;
-    public get max_nm() { return this._max_nm; }
-    public set max_nm(value: number) {
-        this._max_nm = value;
-        this._run_time = this.calculate_run_time();
-    }
-
-    private _nm_per_reading: number = 2;
-    public get nm_per_reading() { return this._nm_per_reading; }
-    public set nm_per_reading(value: number) {
-        this._nm_per_reading = value;
-        this._run_time = this.calculate_run_time();
-    }
-
-    private _run_time: number = this.calculate_run_time();
-    public get run_time() { return this._run_time; }
-    private calculate_run_time(): number {
+    public get run_time(): number {
         const nm_range = this.max_nm - (this.running ? this._scan_nm : this.min_nm);
         const time = nm_range / this.nm_per_reading * this._seconds_per_reading;
         return (time > 0) ? time : 0;
@@ -51,12 +29,12 @@ export class UvVis {
     }
 
     scan(conc: number, speed: number): void {
-        if (this._running) return;
+        if (this.running) return;
         this.chart.options.hAxis.viewWindow.min = this.min_nm;
         this.chart.options.hAxis.viewWindow.max = this.max_nm;
         this.chart.reset();
         this._scan_nm = this.min_nm;
-        this._running = true;
+        this.running = true;
         this._interval = setInterval(() => {
             const absorbance = read_abs(conc, this._scan_nm, this.scan_cuvette_cm);
             this.chart.add_point(this._scan_nm, absorbance);
@@ -67,7 +45,7 @@ export class UvVis {
     }
 
     stop(): void {
-        this._running = false;
+        this.running = false;
         clearInterval(this._interval);
     }
 }
